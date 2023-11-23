@@ -26,8 +26,8 @@ type NewUserLogin struct {
 }
 
 type NewUserUpdate struct {
-	Email    string `json:"email"`
-	Username string `json:"username"`
+	Email    string `json:"email" valid:"email,required"`
+	Username string `json:"username" valid:"required"`
 }
 type MakeUserUpdate struct {
 	Id         int       `json:"id"`

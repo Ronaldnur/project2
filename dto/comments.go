@@ -41,7 +41,7 @@ type GetCommentsResponse struct {
 }
 
 type MakeCommentUpdate struct {
-	Message string `json:"message"`
+	Message string `json:"message" valid:"required"`
 }
 
 type UpdateComment struct {

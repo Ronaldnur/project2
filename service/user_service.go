@@ -127,6 +127,23 @@ func (u *userService) UpdateUser(userId int, newUpdate dto.NewUserUpdate) (*dto.
 		return nil, err
 	}
 
+	existingUser, err := u.userRepo.GetUserByEmail(newUpdate.Email)
+	if err != nil && err.Status() == http.StatusInternalServerError {
+		return nil, err
+	}
+	if existingUser != nil {
+		return nil, errs.NewDuplicateDataError("Please Try Another Email")
+	}
+
+	exitingUsername, err := u.userRepo.GetUserByUsername(newUpdate.Username)
+	if err != nil && err.Status() == http.StatusInternalServerError {
+		return nil, err
+	}
+
+	if exitingUsername != nil {
+		return nil, errs.NewDuplicateDataError("Please Try Another Username")
+	}
+
 	payload := entity.User{
 		Email:    newUpdate.Email,
 		Username: newUpdate.Username,
