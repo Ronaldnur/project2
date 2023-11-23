@@ -124,7 +124,6 @@ func (u *userPG) DeleteUserById(userId int) errs.MessageErr {
 	_, err := u.db.Exec(deleteUserByIdQuery, userId)
 	if err != nil {
 		return errs.NewInternalServerError("something went wrong")
-
 	}
 	return nil
 }

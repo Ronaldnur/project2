@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"project2/dto"
 	"project2/entity"
 	"project2/pkg/errs"
@@ -118,7 +117,6 @@ func (u *userHandler) UpdateUser(ctx *gin.Context) {
 // @Router /users [delete]
 func (u *userHandler) Delete(ctx *gin.Context) {
 	user := ctx.MustGet("userData").(entity.User)
-	fmt.Println(user)
 	result, err := u.userService.DeleteUser(user.Id)
 
 	if err != nil {
