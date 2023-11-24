@@ -15,11 +15,9 @@ const (
 			username,
 			email,
 			password,
-			age,
-			created_at,
-			updated_at
+			age
 		)
-		VALUES ($1, $2, $3, $4, $5, $6)
+		VALUES ($1, $2, $3, $4)
 		RETURNING id
 	`
 
@@ -66,8 +64,7 @@ func NewUserPG(db *sql.DB) user_repository.Repository {
 
 func (u *userPG) CreateNewUser(user entity.User) (int, errs.MessageErr) {
 	var userId int
-	err := u.db.QueryRow(createNewUser, user.Username, user.Email, user.Password, user.Age, user.Created_at, user.Updated_at).Scan(&userId)
-
+	err := u.db.QueryRow(createNewUser, user.Username, user.Email, user.Password, user.Age).Scan(&userId)
 	if err != nil {
 
 		return 0, errs.NewInternalServerError("Failed to create new user")
