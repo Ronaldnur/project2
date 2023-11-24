@@ -55,8 +55,8 @@ func StartApp() {
 	docs.SwaggerInfo.Title = "Project 2"
 	docs.SwaggerInfo.Description = "Ini adalah Project ke 2 dari kelas Kampus Merdeka"
 	docs.SwaggerInfo.Version = "1.0"
-	docs.SwaggerInfo.Host = "localhost:8080"
-	docs.SwaggerInfo.Schemes = []string{"http"}
+	docs.SwaggerInfo.Host = "project2-production-8bf5.up.railway.app"
+	docs.SwaggerInfo.Schemes = []string{"https"}
 
 	route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
