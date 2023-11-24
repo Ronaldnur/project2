@@ -1,0 +1,1 @@
+LINK_DEPLOYMENT= https://project2-production-8bf5.up.railway.app
