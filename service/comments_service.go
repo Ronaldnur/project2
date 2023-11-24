@@ -79,7 +79,7 @@ func (c *commentService) GetComments(userId int) (*dto.GetCommentsResponse, errs
 			Updated_at: eachComment.Comment.Updated_at,
 			Created_at: eachComment.Comment.Created_at,
 			User: dto.GetUserForComment{
-				Id:       eachComment.Comment.Id,
+				Id:       eachComment.User.Id,
 				Email:    eachComment.User.Email,
 				Username: eachComment.User.Username,
 			},
