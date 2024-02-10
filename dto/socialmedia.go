@@ -3,7 +3,7 @@ package dto
 import "time"
 
 type NewSocialMediaRequest struct {
-	Name             string
+	Name             string `json:"name" valid:"required"`
 	Social_media_url string `json:"social_media_url" valid:"required"`
 }
 
@@ -41,8 +41,8 @@ type GetSocialMediaResponse struct {
 
 type UpdateSocialMediaReturn struct {
 	Id               int       `json:"id"`
-	Name             string    `json:"name"`
-	Social_media_url string    `json:"social_media_url"`
+	Name             string    `json:"name" valid:"required"`
+	Social_media_url string    `json:"social_media_url" valid:"required"`
 	User_id          int       `json:"user_id"`
 	Updated_at       time.Time `json:"created_at"`
 }
