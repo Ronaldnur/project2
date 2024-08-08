@@ -1,3 +1,6 @@
 LINK_DEPLOYMENT= https://project2-production-8bf5.up.railway.app
 
-Yang Mengerjakan Project 2 adalah Ronald Nur Sunarto (GLNG-KS07-017)
+cara menggunakan project ini
+
+1. setelah di extract nama folder diubah menjadi project2
+2. buka kode di VS-Code dan langsung go run main.go
